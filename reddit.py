@@ -2,7 +2,7 @@ import praw
 from dotenv import load_dotenv
 import os
 import jsonlines
-import datetime
+from datetime import datetime
 
 load_dotenv()
 
@@ -25,7 +25,6 @@ with jsonlines.open('comments_data.json', mode = 'a') as json_file:
                     'comment_id': comment.id,
                     'comment_author': str(comment.author),
                     'comment_body': comment.body,
-                    'comment_date': datetime.utcfromtimestamp(comment.created_utc).strftime('%Y-%m-%d %H:%M:%S UTC')
                 }
                 print(f"Comment ID: {comment.id}\nAuthor: {comment.author}\nBody: {comment.body}\n")
                 json_file.write(comment_data)
