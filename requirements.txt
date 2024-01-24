@@ -1,0 +1,4 @@
+praw
+datetime
+jsonlines
+python-dotenv
